@@ -5,6 +5,15 @@ import styled from "styled-components/native";
 import { StyleSheet, Text, View } from "react-native";
 import { Card } from "react-native-paper";
 
+const RestaurantCard = styled(Card)`
+  background-color: white;
+`;
+
+const RestaurantCardCover = styled(Card.Cover)`
+  padding: 20px;
+  background-color: white;
+`;
+
 const Title = styled.Text`
   padding: 16px;
   color: red;
@@ -24,22 +33,11 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   return (
-    <Card elevation={5} style={styles.Container}>
-      <Card.Cover source={{ uri: `${photos[0]}` }} style={styles.CardImage} />
+    <RestaurantCard elevation={5}>
+      <RestaurantCardCover source={{ uri: `${photos[0]}` }} />
       <Title>{name}</Title>
-    </Card>
+    </RestaurantCard>
   );
 };
 
 export default RestaurantInfoCard;
-
-const styles = StyleSheet.create({
-  Container: {
-    backgroundColor: "white",
-  },
-
-  CardImage: {
-    padding: 20,
-    backgroundColor: "white",
-  },
-});
